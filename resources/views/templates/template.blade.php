@@ -10,8 +10,9 @@
 <body>
     @yield('content')
 
-    <script>
-        <script src="{{ asset('assets/bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js.map') }}"></script>
-        <script src="{{ asset('assets/bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js') }}"></script>
-    </script>
 </body>
+
+<script>
+    <script src="{{ asset('assets/bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js.map') }}"></script>
+    <script src="{{ asset('assets/bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js') }}"></script>
+</script>
