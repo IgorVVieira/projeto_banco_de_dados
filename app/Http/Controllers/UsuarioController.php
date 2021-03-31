@@ -25,7 +25,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuarios.create');
     }
 
     /**
@@ -36,7 +36,9 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'Teste';
+        $dados = $request->all();
+        $user = DB::insert('insert into usuarios (id, name) values (?, ?)', [1, 'Dayle']);
     }
 
     /**
