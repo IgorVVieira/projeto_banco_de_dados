@@ -51,9 +51,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Teste';
-        $dados = $request->all();
-        $user = DB::insert('insert into usuarios (id, name) values (?, ?)', [1, 'Dayle']);
+        $user = DB::insert('INSERT INTO usuario (nome) VALUES (?, ?)', ['Dayle']);
     }
 
     /**
