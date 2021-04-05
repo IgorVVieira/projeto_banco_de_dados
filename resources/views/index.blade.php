@@ -6,5 +6,6 @@
         {{ $user->nome }} <br>
     @endforeach
     <hr>
-
+    <a href="{{ url('usuario/novo-usuario') }}">Tela de criar usuário</a> <br>
+    <a href="{{ url('usuario/entrar') }}">Tela login do usuário</a>
 @endsection

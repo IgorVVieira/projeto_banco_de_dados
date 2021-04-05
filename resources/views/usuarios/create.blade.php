@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="registration-form">
-        <form action="{{ url('cadastrar-usuario') }}" method="POST">
+        <form action="{{ url('usuario.cadastrar') }}" method="POST">
             @csrf
             @method('POST')
             <div class="form-icon">

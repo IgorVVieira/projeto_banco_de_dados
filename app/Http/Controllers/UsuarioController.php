@@ -28,6 +28,21 @@ class UsuarioController extends Controller
         return view('usuarios.create');
     }
 
+    public function entrar()
+    {
+        return view('usuarios.login');
+    }
+
+    public function login(Request $request)
+    {
+        $cpf = $request->cpf;
+        $senha = $request->senha;
+
+        $usuario = DB::select('SELECT * FROM usuarios WHERE cpf = ? AND senha = ?', [$cpf, $senha]);
+
+        return $usuario;
+    }
+
     /**
      * Store a newly created resource in storage.
      *

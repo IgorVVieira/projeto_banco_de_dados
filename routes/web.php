@@ -6,5 +6,10 @@ use App\Http\Controllers\UsuarioController;
 Route::get('/', [UsuarioController::class, 'index']);
 
 // Rotas de usuário
-Route::get('/novo-usuario', [UsuarioController::class, 'create']);
-Route::post('/cadastrar-usuario', [UsuarioController::class, 'store']);
+
+Route::prefix('usuario')->group(function () {
+    Route::get('/novo-usuario', [UsuarioController::class, 'create']);
+    Route::post('/cadastrar-usuario', [UsuarioController::class, 'store']);
+    Route::get('/entrar', [UsuarioController::class, 'entrar']);
+    Route::post('/login', [UsuarioController::class, 'login']);
+});
