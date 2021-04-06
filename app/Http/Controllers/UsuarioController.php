@@ -73,7 +73,10 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuarios = DB::select('SELECT * FROM usuarios WHERE id = ?', [$id]);
+        $usuario = $usuarios[0];
+
+        return view('usuarios.edit', compact('usuario'));
     }
 
     /**
