@@ -51,7 +51,23 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $user = DB::insert('INSERT INTO usuario (nome) VALUES (?, ?)', ['Dayle']);
+        $nome = $request->nome;
+        $email = $request->email;
+        $cpf = $request->cpf;
+        $cep = $request->cep;
+        $logradouro = $request->logradouro;
+        $numero = $request->numero;
+        $complemento = $request->complemento;
+        $bairro = $request->bairro;
+        $cidade = $request->cidade;
+        $uf = $request->uf;
+        $senha = $request->senha;
+
+        $user = DB::insert('INSERT INTO usuarios (
+            nome, email, cpf, cep, logradouro, numero, complemento, bairro, cidade, uf, senha
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$nome, $email, $cpf, $cep, $logradouro, $numero, $complemento, $bairro, $cidade, $uf, $senha]);
+
+        return redirect()->back();
     }
 
     /**
