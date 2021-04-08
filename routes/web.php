@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\VooController;
 
-Route::get('/', [UsuarioController::class, 'index']);
+Route::get('/', [VooController::class, 'index']);
 
 // Rotas de usuário
-
 Route::prefix('usuario')->group(function () {
     Route::get('/novo-usuario', [UsuarioController::class, 'create']);
     Route::post('/cadastrar-usuario', [UsuarioController::class, 'store']);
