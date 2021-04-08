@@ -14,7 +14,7 @@ class VooController extends Controller
      */
     public function index()
     {
-        $voos = DB::select('SELECT * FROM voos');
+        $voos = DB::select('SELECT V.*, E.razao_social as empresa FROM voos V, empresas_aereas E WHERE V.empresa_aerea_id = E.id');
         return view('index', compact('voos'));
     }
 

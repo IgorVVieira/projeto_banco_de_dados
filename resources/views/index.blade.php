@@ -37,6 +37,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Id</th>
+                    <th scope="col">Empresa aérea</th>
                     <th scope="col">Origem</th>
                     <th scope="col">Destino</th>
                     <th scope="col">Código</th>
@@ -47,10 +48,11 @@
                 @foreach ($voos as $voo)
                     <tr>
                         <th scope="row">{{ $voo->id }}</th>
+                        <td>{{ $voo->empresa }}</td>
                         <td>{{ $voo->origem }} - {{ $voo->origem_uf }}</td>
                         <td>{{ $voo->destino }} - {{ $voo->destino_uf }}</td>
                         <td>{{ $voo->codigo }}</td>
-                        <td>{{ date( 'd/m/Y' , strtotime($voo->data_voo)) }}</td>
+                        <td>{{ data_br($voo->data_voo) }}</td>
                     </tr>
                 @endforeach
 
