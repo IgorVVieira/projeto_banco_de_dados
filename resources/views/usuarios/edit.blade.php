@@ -66,7 +66,7 @@
                 <input type="date" class="form-control item" id="birth-date" placeholder="Birth Date">
             </div> --}}
             <div class="form-group">
-                <button type="submit" class="btn btn-block create-account">Cadastrar <i class="fas fa-save"></i></button>
+                <button type="submit" class="btn btn-block create-account">Editar <i class="fas fa-save"></i></button>
             </div>
         </form>
     </div>

@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="#">Início</a>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
+                <a class="nav-link" href="#">Comprar passagem</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link 2</a>
@@ -16,7 +16,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ url('usuario/novo-usuario') }}">Usuário</a>
-                    <a class="dropdown-item" href="#">Empresa</a>
+                    <a class="dropdown-item" href="{{ url('empresa/nova-empresa') }}">Empresa</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -25,7 +25,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ url('usuario/entrar') }}">Usuário</a>
-                    <a class="dropdown-item" href="#">Empresa</a>
+                    <a class="dropdown-item" href="{{ url('empresa/entrar') }}">Empresa</a>
                 </div>
             </li>
         </ul>
