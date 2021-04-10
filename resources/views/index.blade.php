@@ -1,8 +1,10 @@
 @extends('templates.template')
 
 @section('content')
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top p-2">
-        <a class="navbar-brand" href="#">Início</a>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top p-2">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('img/favicon-32x32.png') }}" alt="Logo">
+            Início</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#">Comprar passagem</a>
