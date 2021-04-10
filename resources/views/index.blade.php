@@ -2,7 +2,7 @@
 
 @section('content')
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top p-2">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('img/favicon-32x32.png') }}" alt="Logo">
             Início</a>
         <ul class="navbar-nav">
