@@ -61,15 +61,11 @@
                 </div>
                 @include('layouts.footer')
             </div>
-            <!-- End of Content Wrapper -->
         </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
+        <!-- Rolar pra cima-->
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-        <!-- Logout Modal-->
     </div>
 @endsection
 
@@ -95,4 +91,8 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
 @endsection
