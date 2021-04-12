@@ -5,37 +5,6 @@
 @endsection
 
 @section('content')
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark p-2">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('img/favicon-32x32.png') }}" alt="Logo">
-            Início</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Comprar passagem</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Cadastrar
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ url('usuario/novo-usuario') }}">Usuário</a>
-                    <a class="dropdown-item" href="{{ url('empresa/nova-empresa') }}">Empresa</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Login
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ url('usuario/entrar') }}">Usuário</a>
-                    <a class="dropdown-item" href="{{ url('empresa/entrar') }}">Empresa</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
     <div class="registration-form">
         <form action="{{ url('usuario/update', ['id' => $usuario->id]) }}" method="POST">
             @csrf

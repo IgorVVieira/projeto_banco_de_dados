@@ -14,12 +14,12 @@
                 <h1 class="h3 mb-3 fw-normal">Login</h1>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="cpf" id="floatingInput" placeholder="CPF">
                     <label for="floatingInput">Usuário (CPF)</label>
+                    <input type="text" class="form-control" name="cpf" id="floatingInput" placeholder="CPF">
                 </div>
                 <div class="form-floating">
-                    <input type="password" name="senha" class="form-control" id="floatingPassword" placeholder="Senha">
                     <label for="floatingPassword">Senha</label>
+                    <input type="password" name="senha" class="form-control" id="floatingPassword" placeholder="Senha">
                 </div>
 
                 <div class="checkbox mb-3">
