@@ -5,10 +5,8 @@
 @endsection
 
 @section('content')
-    <!-- Page Wrapper -->
     <div id="wrapper">
         @include('layouts.sideMenu')
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 @include('layouts.topMenu')

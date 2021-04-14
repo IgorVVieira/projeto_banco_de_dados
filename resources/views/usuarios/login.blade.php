@@ -21,12 +21,6 @@
                     <label for="floatingPassword">Senha</label>
                     <input type="password" name="senha" class="form-control" id="floatingPassword" placeholder="Senha">
                 </div>
-
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Lembrar de mim
-                    </label>
-                </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
                 <p class="mt-5 mb-3 text-muted">&copy; {{ date('Y') }}</p>
             </form>

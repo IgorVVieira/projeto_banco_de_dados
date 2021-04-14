@@ -41,7 +41,18 @@ class UsuarioController extends Controller
 
         $usuario = DB::select('SELECT * FROM usuarios WHERE cpf = ? AND senha = ?', [$cpf, $senha]);
 
-        return $usuario;
+        if (!$usuario) {
+            echo "<script langauge='javascrip'> window.alert('Dados incorretos!')</script>";
+        } else {
+            @session_start();
+            $usuarioLogin = $usuario[0];
+            $_SESSION['id'] = $usuarioLogin->id;
+            $_SESSION['cpf'] = $usuarioLogin->cpf;
+            $_SESSION['nome'] = $usuarioLogin->nome;
+            $_SESSION['senha'] = $usuarioLogin->senha;
+            dd($_SESSION);
+            return redirect()->route('/');
+        }
     }
 
     /**
