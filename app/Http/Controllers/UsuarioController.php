@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UsuarioController extends Controller
 {
@@ -44,14 +45,10 @@ class UsuarioController extends Controller
         if (!$usuario) {
             echo "<script langauge='javascrip'> window.alert('Dados incorretos!')</script>";
         } else {
-            @session_start();
             $usuarioLogin = $usuario[0];
-            $_SESSION['id'] = $usuarioLogin->id;
-            $_SESSION['cpf'] = $usuarioLogin->cpf;
-            $_SESSION['nome'] = $usuarioLogin->nome;
-            $_SESSION['senha'] = $usuarioLogin->senha;
-            dd($_SESSION);
-            return redirect()->route('/');
+            Session::put('usuario', $usuarioLogin);
+
+            dd(Session::get('usuario'));
         }
     }
 
