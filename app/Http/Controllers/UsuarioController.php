@@ -46,10 +46,17 @@ class UsuarioController extends Controller
             echo "<script langauge='javascrip'> window.alert('Dados incorretos!')</script>";
         } else {
             $usuarioLogin = $usuario[0];
-            Session::put('usuario', $usuarioLogin);
+            Session::put('usuario.nome', $usuarioLogin->nome);
+            Session::put('usuario.id', $usuarioLogin->id);
 
-            dd(Session::get('usuario'));
+            return redirect('/');
         }
+    }
+
+    public function logOut(Request $request)
+    {
+        Session::forget('usuario.nome');
+        Session::forget('usuario.id');
     }
 
     /**

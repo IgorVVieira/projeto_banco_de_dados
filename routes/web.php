@@ -15,6 +15,7 @@ Route::prefix('usuario')->group(function () {
     Route::put('/update/{id}', [UsuarioController::class, 'update']);
     Route::get('/entrar', [UsuarioController::class, 'entrar']);
     Route::post('/login', [UsuarioController::class, 'login']);
+    Route::get('/sair', [UsuarioController::class, 'logOut']);
 });
 
 Route::prefix('empresa')->group(function () {

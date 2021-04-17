@@ -1,5 +1,5 @@
 @php
-$id = Session::get('usuario.id');
+$usuario = Session::get('usuario.nome');
 @endphp
 
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -46,7 +46,7 @@ $id = Session::get('usuario.id');
                 <i class="fas fa-user fa-2x"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ url('usuario/editar/3') }}">
+                <a class="dropdown-item" href="{{ url('usuario/editar', ['id' => Session::get('usuario.id')]) }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Perfil
                 </a>
