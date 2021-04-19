@@ -5,6 +5,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VooController;
 use App\Http\Controllers\EmpresaAereaController;
 use App\Http\Controllers\CartaoContoller;
+use App\Http\Controllers\PassagemController;
 
 Route::get('/', [UsuarioController::class, 'entrar']);
 
@@ -31,4 +32,8 @@ Route::prefix('cartao')->group(function () {
     Route::post('/cadastrar', [CartaoContoller::class, 'store']);
     Route::get('/todos/{id}', [CartaoContoller::class, 'show']);
     Route::post('/deletar', [CartaoContoller::class, 'destroy']);
+});
+
+Route::prefix('passagem')->group(function () {
+    Route::post('/comprar', [PassagemController::class, 'comprar']);
 });

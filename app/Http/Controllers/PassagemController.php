@@ -38,6 +38,12 @@ class PassagemController extends Controller
         //
     }
 
+    public function comprar(Request $request)
+    {
+        $id = $request->id;
+        dd($id);
+    }
+
     /**
      * Display the specified resource.
      *

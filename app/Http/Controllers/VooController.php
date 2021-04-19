@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
+use App\Http\Controllers\CartaoContoller;
 
 class VooController extends Controller
 {
@@ -14,8 +17,13 @@ class VooController extends Controller
      */
     public function index()
     {
-        $voos = DB::select('SELECT V.*, E.razao_social as empresa FROM voos V, empresas_aereas E WHERE V.empresa_aerea_id = E.id');
-        return view('index', compact('voos'));
+        $user_id = Session::get('usuario.id');
+
+        $cartoes = DB::select('SELECT * FROM cartoes where usuario_id = ?', [$user_id]);
+        $voos = DB::select('SELECT V.*, E.razao_social as empresa, P.preco as preco, P.classe as classe
+        FROM voos V, empresas_aereas E, PASSAGENS P
+        WHERE V.empresa_aerea_id = E.id AND P.voo_id = V.id');
+        return view('index', compact('voos', 'cartoes'));
     }
 
     /**

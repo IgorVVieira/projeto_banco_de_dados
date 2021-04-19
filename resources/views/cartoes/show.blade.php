@@ -79,11 +79,12 @@
 
     <script>
         $('#deleteCartaoModal').on('show.bs.modal', function(event) {
-        let button = $(event.relatedTarget);
-        let id = button.data('id');
-        console.log(id);
-        let modal = $(this);
-        modal.find('input[name="id"]').val(id);
-    });
+            let button = $(event.relatedTarget);
+            let id = button.data('id');
+            console.log(id);
+            let modal = $(this);
+            modal.find('input[name="id"]').val(id);
+        });
+
     </script>
 @endsection
