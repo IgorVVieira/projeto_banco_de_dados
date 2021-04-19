@@ -1,7 +1,3 @@
-@php
-$usuario = Session::get('usuario.nome');
-@endphp
-
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
@@ -50,7 +46,7 @@ $usuario = Session::get('usuario.nome');
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Perfil
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{ url('cartao/todos', ['id' => Session::get('usuario.id')]) }}">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Cartões
                 </a>

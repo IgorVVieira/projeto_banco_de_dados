@@ -49,7 +49,7 @@ class UsuarioController extends Controller
             Session::put('usuario.nome', $usuarioLogin->nome);
             Session::put('usuario.id', $usuarioLogin->id);
 
-            return redirect('/');
+            return redirect('/voos');
         }
     }
 

@@ -26,4 +26,12 @@
             </form>
         </main>
     </div>
+    <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+            Não tem uma conta? <a href="{{ url('usuario/novo') }}" class="ml-2">Cadastre-se</a>
+        </div>
+        <div class="d-flex justify-content-center links">
+            <a href="{{ url('empresa/entrar') }}">Entrar como empresa</a>
+        </div>
+    </div>
 @endsection

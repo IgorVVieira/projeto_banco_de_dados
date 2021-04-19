@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="registration-form">
-        <form action="{{ url('usuario/cadastrar-usuario') }}" method="POST">
+        <form action="{{ url('usuario/cadastrar') }}" method="POST">
             @csrf
             @method('POST')
             <div class="form-icon">
@@ -59,9 +59,6 @@
             <div class="form-group">
                 <input name="senha" type="password" class="form-control item" id="senha" placeholder="Senha">
             </div>
-            {{-- <div class="form-group">
-                <input type="date" class="form-control item" id="birth-date" placeholder="Birth Date">
-            </div> --}}
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account">Cadastrar <i class="fas fa-save"></i></button>
             </div>
