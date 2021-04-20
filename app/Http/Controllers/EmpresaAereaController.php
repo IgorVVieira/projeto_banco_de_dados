@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class EmpresaAereaController extends Controller
 {
@@ -30,6 +31,34 @@ class EmpresaAereaController extends Controller
     public function entrar()
     {
         return view('empresas.login');
+    }
+
+    public function login(Request $request)
+    {
+        $cnpj = $request->cnpj;
+        $senha = $request->senha;
+
+        $usuario = DB::select('SELECT * FROM empresas_aereas WHERE cnpj = ? AND senha = ?', [$cnpj, $senha]);
+
+        if (!$usuario) {
+            echo "<script langauge='javascrip'> window.alert('Dados incorretos!')</script>";
+        } else {
+            $usuarioLogin = $usuario[0];
+            Session::put('usuario.nome', $usuarioLogin->razao_social);
+            Session::put('usuario.id', $usuarioLogin->id);
+            Session::put('usuario.cnpj', $usuarioLogin->cnpj);
+
+            return redirect('/voos');
+        }
+    }
+
+    public function logOut()
+    {
+        Session::forget('usuario.nome');
+        Session::forget('usuario.id');
+        Session::forget('usuario.cnpj');
+
+        return redirect('/');
     }
 
     /**

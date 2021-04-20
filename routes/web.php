@@ -26,6 +26,7 @@ Route::prefix('empresa')->group(function () {
     Route::post('/cadastrar', [EmpresaAereaController::class, 'store']);
     Route::get('/entrar', [EmpresaAereaController::class, 'entrar']);
     Route::post('/login', [EmpresaAereaController::class, 'login']);
+    Route::get('/sair', [EmpresaAereaController::class, 'logOut']);
 });
 
 Route::prefix('cartao')->group(function () {

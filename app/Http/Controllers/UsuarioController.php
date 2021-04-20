@@ -59,6 +59,7 @@ class UsuarioController extends Controller
             $usuarioLogin = $usuario[0];
             Session::put('usuario.nome', $usuarioLogin->nome);
             Session::put('usuario.id', $usuarioLogin->id);
+            Session::put('usuario.cpf', $usuarioLogin->cpf);
 
             return redirect('/voos');
         }
@@ -68,6 +69,9 @@ class UsuarioController extends Controller
     {
         Session::forget('usuario.nome');
         Session::forget('usuario.id');
+        Session::forget('usuario.cpf');
+
+        return redirect('/');
     }
 
     /**
@@ -90,7 +94,7 @@ class UsuarioController extends Controller
         $uf = $request->uf;
         $senha = $request->senha;
 
-        $user = DB::insert('INSERT INTO usuarios (
+        DB::insert('INSERT INTO usuarios (
             nome, email, cpf, cep, logradouro, numero, complemento, bairro, cidade, uf, senha
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$nome, $email, $cpf, $cep, $logradouro, $numero, $complemento, $bairro, $cidade, $uf, $senha]);
 

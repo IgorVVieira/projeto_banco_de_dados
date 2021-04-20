@@ -52,11 +52,17 @@
                                             <td>{{ data_br($voo->data_voo) }}</td>
                                             <td>{{ $voo->classe }}</td>
                                             <td class="align-center">
-                                                <a class="btn btn-primary btn-circle" data-toggle="modal"
-                                                    data-target="#comprarPassagemModal" data-id="{{ $voo->id }}"
-                                                    data-preco="{{ $voo->preco }}">
-                                                    <i class="fas fa-shopping-cart"></i>
-                                                </a>
+                                                @if (Session::get('usuario.cpf') != null)
+                                                    <a class="btn btn-primary btn-circle" data-toggle="modal"
+                                                        data-target="#comprarPassagemModal" data-id="{{ $voo->id }}"
+                                                        data-preco="{{ $voo->preco }}">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                @else
+                                                    <button class="btn btn-primary btn-circle" disabled>
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </button>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
@@ -89,7 +95,11 @@
                 <div class="modal-body">Selecione "Logout" se deseja encerrar a sessão.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="{{ url('usuario/sair') }}">Logout</a>
+                    @if (Session::get('usuario.cpf') != null)
+                        <a class="btn btn-primary" href="{{ url('usuario/sair') }}">Logout</a>
+                        @else
+                        <a class="btn btn-primary" href="{{ url('empresa/sair') }}">Logout</a>
+                    @endif
                 </div>
             </div>
         </div>
