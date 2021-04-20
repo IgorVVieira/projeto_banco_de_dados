@@ -35,6 +35,17 @@ class UsuarioController extends Controller
         return view('usuarios.login');
     }
 
+    public function historicoCompras()
+    {
+        $user_id = Session::get('usuario.id');
+        $passagens = DB::select('SELECT DISTINCT P.*, C.nome_titular as titular, C.tipo as tipo, C.data_validade,
+        V.origem , V.origem_uf, V.destino, V.destino_uf, V.data_voo
+        FROM passagens P, cartoes C, usuarios U, voos V
+        WHERE C.id = P.cartao_id AND P.voo_id = V.id AND C.usuario_id = ?', [$user_id]);
+
+        return view('usuarios.historico', compact('passagens'));
+    }
+
     public function login(Request $request)
     {
         $cpf = $request->cpf;

@@ -5,13 +5,14 @@
         </div>
         <div class="sidebar-brand-text mx-3">Aeroporto</div>
     </a>
-    <li class="nav-item">
-        <a class="nav-link" href="#" aria-expanded="true"
-            aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Histórico de compras</span>
-        </a>
-    </li>
+    {{-- @if (Session::get('usuario.cpf') != null) --}}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('usuario/historico-compras') }}" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Histórico de compras</span>
+            </a>
+        </li>
+    {{-- @endif --}}
     @if (Session::get('usuario.cnpj') != null)
         <hr class="sidebar-divider">
         <li class="nav-item">

@@ -16,6 +16,7 @@ Route::prefix('usuario')->group(function () {
     Route::post('/cadastrar', [UsuarioController::class, 'store']);
     Route::get('/editar/{id}', [UsuarioController::class, 'edit']);
     Route::put('/update/{id}', [UsuarioController::class, 'update']);
+    Route::get('/historico-compras', [UsuarioController::class, 'historicoCompras']);
     Route::post('/login', [UsuarioController::class, 'login']);
     Route::get('/sair', [UsuarioController::class, 'logOut']);
 });
