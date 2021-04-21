@@ -7,7 +7,8 @@
     </a>
     @if (Session::get('usuario.cpf') != null)
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('usuario/historico-compras') }}" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link" href="{{ url('usuario/historico-compras') }}" aria-expanded="true"
+                aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Histórico de compras</span>
             </a>
@@ -23,8 +24,9 @@
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="register.html">Cadastrar avião</a>
+                    <a class="collapse-item" href="{{ url('aviao/todos', ['id' => Session::get('usuario.id')]) }}">Meus
+                        aviões</a>
+                    <a class="collapse-item" href="{{ url('aviao/novo') }}">Cadastrar avião</a>
                     <a class="collapse-item" href="login.html">Cadastrar voo</a>
                     <a class="collapse-item" href="forgot-password.html">Cadastrar passagem</a>
                 </div>

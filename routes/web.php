@@ -6,6 +6,7 @@ use App\Http\Controllers\VooController;
 use App\Http\Controllers\EmpresaAereaController;
 use App\Http\Controllers\CartaoContoller;
 use App\Http\Controllers\PassagemController;
+use App\Http\Controllers\AviaoController;
 
 Route::get('/', [UsuarioController::class, 'entrar']);
 
@@ -38,4 +39,10 @@ Route::prefix('cartao')->group(function () {
 
 Route::prefix('passagem')->group(function () {
     Route::post('/comprar', [PassagemController::class, 'comprar']);
+});
+
+Route::prefix('aviao')->group(function () {
+    Route::get('/novo', [AviaoController::class, 'create']);
+    Route::post('/cadastrar', [AviaoController::class, 'store']);
+    Route::get('/todos/{id}', [AviaoController::class, 'show']);
 });

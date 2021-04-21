@@ -17,35 +17,23 @@
                                 <div class="col-lg-7">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Cadastre um cartão!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Cadastre um novo avião!</h1>
                                         </div>
-                                        <form action="{{ url('cartao/cadastrar') }}" method="POST">
+                                        <form action="{{ url('aviao/cadastrar') }}" method="POST">
                                             @csrf
                                             @method('POST')
                                             <div class="form-group">
-                                                <select class="form-control" name="tipo" id="tipo" required>
-                                                    <option value="Crédito">Crédito</option>
-                                                    <option value="Débito">Débito</option>
-                                                </select>
+                                                <input name="qtd_assentos" type="number"
+                                                    class="form-control form-control-user"
+                                                    placeholder="Quantidade de assentos" required min="20" max="186">
                                             </div>
                                             <div class="form-group">
-                                                <input name="nome_titular" type="text"
-                                                    class="form-control form-control-user" placeholder="Nome do titular" required>
+                                                <input name="modelo" type="text" class="form-control form-control-user"
+                                                    placeholder="Modelo" required>
                                             </div>
                                             <div class="form-group">
-                                                <input name="data_validade" type="date" class="form-control item"
-                                                    placeholder="Data de validade" required>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-lg-8">
-                                                    <input name="numero" type="number"
-                                                        class="form-control form-control-user"
-                                                        placeholder="Número do cartão" required>
-                                                </div>
-                                                <div class="form-group col-lg-4">
-                                                    <input name="cvv" type="number" class="form-control form-control-user"
-                                                        placeholder="CVV" required>
-                                                </div>
+                                                <input name="codigo" type="number" class="form-control form-control-user"
+                                                    placeholder="Código" required min="0">
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                                 Cadastrar <i class="fas fa-save"></i>
@@ -63,7 +51,6 @@
         </div>
     </div>
 @endsection
-
 @section('scripts')
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
 @endsection

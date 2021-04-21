@@ -65,7 +65,7 @@ class UsuarioController extends Controller
         }
     }
 
-    public function logOut(Request $request)
+    public function logOut()
     {
         Session::forget('usuario.nome');
         Session::forget('usuario.id');
