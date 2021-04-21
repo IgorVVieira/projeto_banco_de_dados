@@ -5,7 +5,6 @@
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-layout">Layout</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-autor">Autor</a> • 
  <a href="#user-content--licença">Licença</a>
@@ -14,28 +13,27 @@
 
 ## 💻 Sobre o projeto
 
-✈ Aeroporto - é uma forma de conectar empresas e entidades de coleta de resíduos orgânicos e inorgânicos as pessoas que precisam descartar seus resíduos de maneira ecológica.
+✈ Aeroporto - A finalidade deste projeto é a elaboração de uma plataforma online que
+possibilitará que empresas de viagens aéreas possam cadastrar seus voos e disponibilizar
+passagens que usuários possam realizar a compra em uma quantidade limitada. Assim a
+empresa terá um controle maior de seus passageiros, agendamento de voos e possíveis
+vendas realizadas, e usuários também poderão ver e escolher qual empresa e voo lhe
+servirá melhor.
 
 ---
 
 ## ⚙️ Funcionalidades
 
-- [x] Empresas ou entidades podem se cadastrar na plataforma web enviando:
-  - [x] uma imagem do ponto de coleta
-  - [x] nome da entidade, email e whatsapp
-  - [x] e o endereço para que ele possa aparecer no mapa
-  - [x] além de selecionar um ou mais ítens de coleta: 
-    - lâmpadas
-    - pilhas e baterias
-    - papéis e papelão
-    - resíduos eletrônicos
-    - resíduos orgânicos
-    - óleo de cozinha
-
-- [x] Os usuários tem acesso ao aplicativo móvel, onde podem:
-  - [x] navegar pelo mapa para ver as instituições cadastradas
-  - [x] entrar em contato com a entidade através do E-mail ou do WhatsApp
-
+-  [x] Empresas e usuários podem se cadastrar e fazer login na plataforma:
+  - [x] Usuários podem:
+      - Cadastrar e deletar cartão de crédito/débito;
+      - Editar seu perfil;
+      - Comprar passage; 
+      - Ver seu histórico de compras;
+  - [x] Empresas podem:
+      - Cadastrar aviões;
+      - Cadastrar passagens;
+      - Cadastrar voos;
 ---
 
 ## 🚀 Como executar o projeto
@@ -46,6 +44,19 @@
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [PHP](https://www.php.net/downloads.php), [MySql](https://www.mysql.com/downloads/) ou o [Xampp](https://www.apachefriends.org/download.html) mais o [Composer](https://getcomposer.org/download/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+## .ENV
+Para executar o projeto é necessário configurar o arquivo .env, copie o arquivo .env.exemple e altere as credenciais de acordo com as suas.
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=aeroporto
+DB_USERNAME=
+DB_PASSWORD=
+
+```
 
 #### 🎲 Rodando projeto 
 
