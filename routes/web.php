@@ -11,6 +11,8 @@ use App\Http\Controllers\AviaoController;
 Route::get('/', [UsuarioController::class, 'entrar']);
 
 Route::get('/voos', [VooController::class, 'index']);
+Route::get('/novo-voo', [VooController::class, 'create']);
+Route::post('voo/cadastrar', [VooController::class, 'store']);
 
 Route::prefix('usuario')->group(function () {
     Route::get('/novo', [UsuarioController::class, 'create']);

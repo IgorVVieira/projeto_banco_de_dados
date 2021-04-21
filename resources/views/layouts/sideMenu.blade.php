@@ -27,7 +27,7 @@
                     <a class="collapse-item" href="{{ url('aviao/todos', ['id' => Session::get('usuario.id')]) }}">Meus
                         aviões</a>
                     <a class="collapse-item" href="{{ url('aviao/novo') }}">Cadastrar avião</a>
-                    <a class="collapse-item" href="login.html">Cadastrar voo</a>
+                    <a class="collapse-item" href="{{ url('novo-voo') }}">Cadastrar voo</a>
                     <a class="collapse-item" href="forgot-password.html">Cadastrar passagem</a>
                 </div>
             </div>

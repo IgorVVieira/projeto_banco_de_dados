@@ -21,8 +21,10 @@ class VooController extends Controller
 
         $cartoes = DB::select('SELECT * FROM cartoes where usuario_id = ?', [$user_id]);
         $voos = DB::select('SELECT V.*, E.razao_social as empresa, P.preco as preco, P.classe as classe
-        FROM voos V, empresas_aereas E, PASSAGENS P
-        WHERE V.empresa_aerea_id = E.id AND P.voo_id = V.id');
+        FROM voos V, empresas_aereas E, PASSAGENS P GROUP BY V.id');
+        // SELECT V.*, E.razao_social as empresa, P.preco as preco, P.classe as classe
+        // FROM voos V, empresas_aereas E, PASSAGENS P
+        // WHERE V.empresa_aerea_id = E.id AND P.voo_id = V.id
         return view('index', compact('voos', 'cartoes'));
     }
 
@@ -33,7 +35,9 @@ class VooController extends Controller
      */
     public function create()
     {
-        //
+        $empresa_aerea_id = Session::get('usuario.id');
+        $avioes = DB::select('SELECT * FROM avioes WHERE empresa_aerea_id = ?', [$empresa_aerea_id]);
+        return view('voos.create', compact('avioes'));
     }
 
     /**
@@ -44,7 +48,19 @@ class VooController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresa_aerea_id = Session::get('usuario.id');
+        $aviao_id = $request->aviao_id;
+        $origem = $request->origem;
+        $origem_uf = $request->origem_uf;
+        $destino = $request->destino;
+        $destino_uf = $request->destino_uf;
+        $codigo = $request->codigo;
+        $data_voo = $request->data_voo;
+
+        DB::insert('INSERT INTO voos (empresa_aerea_id, aviao_id, origem, origem_uf, destino, destino_uf, codigo, data_voo)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [$empresa_aerea_id, $aviao_id, $origem, $origem_uf, $destino, $destino_uf, $codigo, $data_voo]);
+
+        return redirect('/');
     }
 
     /**

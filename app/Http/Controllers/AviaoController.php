@@ -41,7 +41,7 @@ class AviaoController extends Controller
         $modelo = $request->modelo;
         $codigo = $request->codigo;
 
-        DB::insert('INSERT into avioes (empresa_aerea_id, qtd_assentos, modelo, codigo)
+        DB::insert('INSERT INTO avioes (empresa_aerea_id, qtd_assentos, modelo, codigo)
         VALUES (?, ?, ?, ?)', [$empresa_aerea_id, $qtd_assentos, $modelo, $codigo]);
 
         return redirect('aviao/todos/' . $empresa_aerea_id);
