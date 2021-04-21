@@ -42,9 +42,9 @@ class AviaoController extends Controller
         $codigo = $request->codigo;
 
         DB::insert('INSERT into avioes (empresa_aerea_id, qtd_assentos, modelo, codigo)
-        VALUES (?, ?)', [$empresa_aerea_id, $qtd_assentos, $modelo, $codigo]);
+        VALUES (?, ?, ?, ?)', [$empresa_aerea_id, $qtd_assentos, $modelo, $codigo]);
 
-        return redirect('');
+        return redirect('aviao/todos/' . $empresa_aerea_id);
     }
 
     /**
@@ -91,6 +91,10 @@ class AviaoController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        $empresa_aerea_id = Session::get('usuario.id');
+        DB::delete('DELETE FROM avioes WHERE id = ?', [$id]);
+
+        return redirect('aviao/todos/' . $empresa_aerea_id);
     }
 }

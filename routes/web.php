@@ -45,4 +45,5 @@ Route::prefix('aviao')->group(function () {
     Route::get('/novo', [AviaoController::class, 'create']);
     Route::post('/cadastrar', [AviaoController::class, 'store']);
     Route::get('/todos/{id}', [AviaoController::class, 'show']);
+    Route::post('/deletar', [AviaoController::class, 'destroy']);
 });
