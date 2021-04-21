@@ -32,9 +32,10 @@ class PassagemController extends Controller
         $codigo = $request->codigo;
         $preco = $request->preco;
         $data_emissao = $request->data_emissao;
+        $classe = $request->classe;
 
-        DB::insert('INSERT INTO passagens (voo_id, codigo, preco, data_emissao)
-        VALUES (?, ?, ?, ?)', [$voo_id, $codigo, $preco, $data_emissao]);
+        DB::insert('INSERT INTO passagens (voo_id, codigo, preco, data_emissao, classe)
+        VALUES (?, ?, ?, ?)', [$voo_id, $codigo, $preco, $data_emissao, $classe]);
 
         return redirect('/voos');
     }

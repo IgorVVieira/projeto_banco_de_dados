@@ -49,7 +49,6 @@
                                                 <select class="form-control" name="classe" required>
                                                         <option value="Econômica">Econômica</option>
                                                         <option value="Executiva">Executiva</option>
-                                                    @endforeach
                                                 </select>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-user btn-block">
