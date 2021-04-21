@@ -8,7 +8,7 @@
     <div class="registration-form">
         <form action="{{ url('usuario/update', ['id' => $usuario->id]) }}" method="POST">
             @csrf
-            @method('POST')
+            @method('PUT')
             <div class="form-icon">
                 <span><i class="fas fa-user"></i></span>
             </div>

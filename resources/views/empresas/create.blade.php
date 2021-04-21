@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="registration-form">
-        <form action="{{ url('usuario/cadastrar-usuario') }}" method="POST">
+        <form action="{{ url('empresa/cadastrar') }}" method="POST">
             @csrf
             @method('POST')
             <div class="form-icon">
@@ -17,7 +17,7 @@
                     placeholder="Razão Social" required>
             </div>
             <div class="form-group">
-                <input name="cpf" type="text" class="form-control item" id="cpf" placeholder="CNPJ (Sem ponto ou traço)"
+                <input name="cnpj" type="text" class="form-control item" id="cnpj" placeholder="CNPJ (Sem ponto ou traço)"
                     required min="14" max="14">
             </div>
             <div class="form-group">
@@ -39,12 +39,12 @@
             </div>
             <div class="row">
                 <div class="form-group col-lg-5">
-                    <input name="numero" type="text" class="form-control item" id="numero" placeholder="Número da casa"
+                    <input name="numero" type="text" class="form-control item" id="numero" placeholder="Número do local"
                         required max="10">
                 </div>
                 <div class="form-group col-lg-7">
                     <input name="complemento" type="text" class="form-control item" id="complemento"
-                        placeholder="Complemento(opcional)" required max="30">
+                        placeholder="Complemento(opcional)" max="30">
                 </div>
             </div>
             <div class="row">

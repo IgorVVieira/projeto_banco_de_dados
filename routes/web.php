@@ -40,7 +40,9 @@ Route::prefix('cartao')->group(function () {
 });
 
 Route::prefix('passagem')->group(function () {
+    Route::get('/nova', [PassagemController::class, 'create']);
     Route::post('/comprar', [PassagemController::class, 'comprar']);
+    Route::post('/cadastrar', [PassagemController::class, 'store']);
 });
 
 Route::prefix('aviao')->group(function () {

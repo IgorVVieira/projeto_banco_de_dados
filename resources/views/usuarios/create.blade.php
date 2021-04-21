@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group col-lg-7">
                     <input name="complemento" type="text" class="form-control item" id="complemento"
-                        placeholder="Complemento(opcional)" required max="30">
+                        placeholder="Complemento(opcional)" max="30">
                 </div>
             </div>
             <div class="row">

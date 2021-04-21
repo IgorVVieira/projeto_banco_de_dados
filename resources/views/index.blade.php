@@ -54,7 +54,7 @@
                                             <td class="align-center">
                                                 @if (Session::get('usuario.cpf') != null)
                                                     <a class="btn btn-primary btn-circle" data-toggle="modal"
-                                                        data-target="#comprarPassagemModal" data-id="{{ $voo->id }}"
+                                                        data-target="#comprarPassagemModal" data-id="{{ $voo->passagem }}"
                                                         data-preco="{{ $voo->preco }}">
                                                         <i class="fas fa-shopping-cart"></i>
                                                     </a>

@@ -28,7 +28,7 @@
     </div>
     <div class="mt-4">
         <div class="d-flex justify-content-center links">
-            Não tem uma conta? <a href="{{ url('empresa/novo') }}" class="ml-2">Cadastre-se</a>
+            Não tem uma conta? <a href="{{ url('empresa/nova') }}" class="ml-2">Cadastre-se</a>
         </div>
         <div class="d-flex justify-content-center links">
             <a href="{{ url('/') }}">Entrar como usuário</a>

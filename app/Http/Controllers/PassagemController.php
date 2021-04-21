@@ -4,19 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class PassagemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +15,9 @@ class PassagemController extends Controller
      */
     public function create()
     {
-        //
+        $empresa_aerea_id = Session::get('usuario.id');
+        $voos = DB::select('SELECT * FROM voos WHERE empresa_aerea_id = ?', [$empresa_aerea_id]);
+        return view('passagem.create', compact('voos'));
     }
 
     /**
@@ -35,57 +28,24 @@ class PassagemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $voo_id = $request->voo_id;
+        $codigo = $request->codigo;
+        $preco = $request->preco;
+        $data_emissao = $request->data_emissao;
+
+        DB::insert('INSERT INTO passagens (voo_id, codigo, preco, data_emissao)
+        VALUES (?, ?, ?, ?)', [$voo_id, $codigo, $preco, $data_emissao]);
+
+        return redirect('/voos');
     }
 
     public function comprar(Request $request)
     {
         $id = $request->id;
-        dd($id);
-    }
+        $cartao_id = $request->cartao;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        DB::update('UPDATE passagens set cartao_id = ? WHERE id = ?', [$cartao_id, $id]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect('/voos');
     }
 }

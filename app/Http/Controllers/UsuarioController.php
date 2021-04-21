@@ -102,17 +102,6 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -135,17 +124,23 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $id = Session::get('usuario.id');
+        $nome = $request->nome;
+        $email = $request->email;
+        $cpf = $request->cpf;
+        $cep = $request->cep;
+        $logradouro = $request->logradouro;
+        $numero = $request->numero;
+        $complemento = $request->complemento;
+        $bairro = $request->bairro;
+        $cidade = $request->cidade;
+        $uf = $request->uf;
+        $senha = $request->senha;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        DB::update('UPDATE usuarios SET nome = ?, email = ?, cpf = ?, cep = ?, logradouro = ?, numero = ?,
+        complemento = ?, bairro = ?, cidade = ?, uf = ?, senha = ?
+        WHERE id = ?', [$nome, $email, $cpf, $cep, $logradouro, $numero, $complemento, $bairro, $cidade, $uf, $senha, $id]);
+
+        return redirect('/voos');
     }
 }

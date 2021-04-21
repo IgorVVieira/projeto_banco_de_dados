@@ -20,8 +20,9 @@ class VooController extends Controller
         $user_id = Session::get('usuario.id');
 
         $cartoes = DB::select('SELECT * FROM cartoes where usuario_id = ?', [$user_id]);
-        $voos = DB::select('SELECT V.*, E.razao_social as empresa, P.preco as preco, P.classe as classe
-        FROM voos V, empresas_aereas E, PASSAGENS P GROUP BY V.id');
+        $voos = DB::select('SELECT V.*, E.razao_social as empresa, P.preco as preco, P.id as passagem, P.classe as classe
+            FROM voos V, empresas_aereas E, PASSAGENS P WHERE V.empresa_aerea_id = E.id AND P.voo_id = V.id
+            GROUP BY V.id');
         // SELECT V.*, E.razao_social as empresa, P.preco as preco, P.classe as classe
         // FROM voos V, empresas_aereas E, PASSAGENS P
         // WHERE V.empresa_aerea_id = E.id AND P.voo_id = V.id
@@ -60,51 +61,6 @@ class VooController extends Controller
         DB::insert('INSERT INTO voos (empresa_aerea_id, aviao_id, origem, origem_uf, destino, destino_uf, codigo, data_voo)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [$empresa_aerea_id, $aviao_id, $origem, $origem_uf, $destino, $destino_uf, $codigo, $data_voo]);
 
-        return redirect('/');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect('/voos');
     }
 }

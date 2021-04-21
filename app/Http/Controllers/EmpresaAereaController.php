@@ -9,16 +9,6 @@ use Illuminate\Support\Facades\Session;
 class EmpresaAereaController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -69,28 +59,22 @@ class EmpresaAereaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $razao_social = $request->razao_social;
+        $cnpj = $request->cnpj;
+        $email = $request->email;
+        $cep = $request->cep;
+        $logradouro = $request->logradouro;
+        $numero = $request->numero;
+        $complemnto = $request->complemento;
+        $bairro = $request->bairro;
+        $cidade = $request->cidade;
+        $uf = $request->uf;
+        $senha = $request->senha;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        DB::insert('INSERT INTO empresas_aereas (razao_social, cnpj, email, cep, logradouro, numero, complemento, bairro, cidade, uf, senha)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [$razao_social, $cnpj, $email, $cep, $logradouro, $numero, $complemnto, $bairro, $cidade, $uf, $senha]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect('empresa/entrar');
     }
 }

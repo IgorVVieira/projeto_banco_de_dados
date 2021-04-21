@@ -28,7 +28,7 @@
                         aviões</a>
                     <a class="collapse-item" href="{{ url('aviao/novo') }}">Cadastrar avião</a>
                     <a class="collapse-item" href="{{ url('novo-voo') }}">Cadastrar voo</a>
-                    <a class="collapse-item" href="forgot-password.html">Cadastrar passagem</a>
+                    <a class="collapse-item" href="{{ url('passagem/nova') }}">Cadastrar passagem</a>
                 </div>
             </div>
         </li>

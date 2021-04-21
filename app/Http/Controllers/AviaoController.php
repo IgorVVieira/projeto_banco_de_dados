@@ -55,9 +55,12 @@ class AviaoController extends Controller
      */
     public function show($id)
     {
+        $empresa_aerea_id = Session::get('usuario.id');
         $avioes = DB::select('SELECT * FROM avioes WHERE empresa_aerea_id = ?', [$id]);
+        $passagens = DB::select('SELECT P.* FROM passagens P, VOOS V
+        WHERE V.id = P.voo_id AND V.empresa_aerea_id = ?', [$empresa_aerea_id]);
 
-        return view('avioes.show', compact('avioes'));
+        return view('avioes.show', compact('avioes', 'passagens'));
     }
 
     /**
